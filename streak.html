@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Asanas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #333;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #555;
+        }
+
+        th {
+            background-color: #444;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2deed4;
+            color: #000;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Yoga Asanas and Descriptions</h1>
+    
+    <button id="displayButton">Display Asanas</button>
+    
+    <table id="asana_table">
+        <thead>
+            <tr>
+                <th>Asana</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody id="asana_table_body">
+            <!-- Asanas will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Yoga asanas and descriptions
+        const asanas = [
+    { name: "Tadasana", description: "Tadasana, also known as Mountain Pose, improves posture and balance." },
+    { name: "Vrikshasana", description: "Vrikshasana, or Tree Pose, helps enhance stability and concentration." },
+    { name: "Bhujangasana", description: "Bhujangasana, or Cobra Pose, strengthens the spine and opens the chest." },
+    { name: "Adho Mukha Svanasana", description: "Adho Mukha Svanasana, or Downward Dog, stretches the body and strengthens muscles." },
+    { name: "Setu Bandhasana", description: "Setu Bandhasana, or Bridge Pose, tones the back and relieves tension." },
+    { name: "Uttanasana", description: "Uttanasana, or Forward Fold, stretches the hamstrings and calms the mind." },
+    { name: "Trikonasana", description: "Trikonasana, or Triangle Pose, stretches the legs and enhances flexibility." },
+    { name: "Padmasana", description: "Padmasana, or Lotus Pose, promotes relaxation and meditation." },
+    { name: "Dhanurasana", description: "Dhanurasana, or Bow Pose, stretches the chest and strengthens the back." },
+    { name: "Ardha Matsyendrasana", description: "Ardha Matsyendrasana, or Half Lord of the Fishes Pose, improves spine flexibility and detoxifies the body." },
+    { name: "Garudasana", description: "Garudasana, or Eagle Pose, improves balance and strengthens the legs and core." },
+    { name: "Parivrtta Trikonasana", description: "Parivrtta Trikonasana, or Revolved Triangle Pose, enhances flexibility and strengthens the legs." },
+    { name: "Virabhadrasana I", description: "Virabhadrasana I, or Warrior I, builds strength in the legs, arms, and core." },
+    { name: "Virabhadrasana II", description: "Virabhadrasana II, or Warrior II, improves stamina and balance while strengthening the legs and arms." },
+    { name: "Chaturanga Dandasana", description: "Chaturanga Dandasana, or Four-Limbed Staff Pose, strengthens the arms, core, and legs." },
+    { name: "Salamba Sirsasana", description: "Salamba Sirsasana, or Supported Headstand, strengthens the core and improves focus." },
+    { name: "Natarajasana", description: "Natarajasana, or Dancer's Pose, enhances balance, flexibility, and concentration." },
+    { name: "Savasana", description: "Savasana, or Corpse Pose, promotes relaxation and stress relief after a yoga session." },
+    { name: "Bakasana", description: "Bakasana, or Crane Pose, strengthens the arms, wrists, and core while enhancing focus." },
+    { name: "Supta Baddha Konasana", description: "Supta Baddha Konasana, or Reclining Bound Angle Pose, opens the hips and promotes relaxation." },
+    { name: "Halasana", description: "Halasana, or Plow Pose, stretches the back, shoulders, and hamstrings while calming the mind." },
+    { name: "Pashchimottanasana", description: "Pashchimottanasana, or Seated Forward Fold, stretches the hamstrings and helps with digestion." },
+    { name: "Kundalini Pose", description: "Kundalini Pose is focused on activating the energy within, aimed at balancing the chakras." },
+    { name: "Matsyasana", description: "Matsyasana, or Fish Pose, stretches the chest and throat, improving respiration." },
+    { name: "Sethu Bandhasana", description: "Sethu Bandhasana, or Bridge Pose, opens the chest and strengthens the lower back." },
+    { name: "Baddha Konasana", description: "Baddha Konasana, or Bound Angle Pose, opens the hips and strengthens the inner thighs." },
+    { name: "Malasana", description: "Malasana, or Garland Pose, stretches the hips, groin, and ankles, improving flexibility." },
+    { name: "Viparita Karani", description: "Viparita Karani, or Legs Up the Wall Pose, calms the nervous system and improves circulation." },
+    { name: "Makarasana", description: "Makarasana, or Crocodile Pose, is a relaxing pose that opens the chest and relieves tension in the lower back." },
+    { name: "Kakasana", description: "Kakasana, or Crow Pose, strengthens the arms, wrists, and core while enhancing focus." },
+    { name: "Anjaneyasana", description: "Anjaneyasana, or Crescent Lunge, strengthens the legs and opens the hips." },
+    { name: "Siddhasana", description: "Siddhasana, or Accomplished Pose, promotes meditation and calms the mind." },
+    { name: "Gomukhasana", description: "Gomukhasana, or Cow Face Pose, stretches the hips, thighs, and shoulders, enhancing flexibility." },
+    { name: "Tittibhasana", description: "Tittibhasana, or Firefly Pose, strengthens the arms and core while improving flexibility." },
+    { name: "Vasisthasana", description: "Vasisthasana, or Side Plank Pose, strengthens the arms, wrists, and core while improving balance." },
+    { name: "Utthita Parsvakonasana", description: "Utthita Parsvakonasana, or Extended Side Angle Pose, strengthens the legs and opens the hips." },
+    { name: "Prasarita Padottanasana", description: "Prasarita Padottanasana, or Wide-Legged Forward Bend, stretches the hamstrings and relieves tension in the back." },
+    { name: "Brahma Mudra", description: "Brahma Mudra is a hand gesture that helps to balance the energy and calm the mind during meditation." },
+    { name: "Samasthiti", description: "Samasthiti, or Equal Standing Pose, brings a sense of balance and awareness to the body and mind." },
+    { name: "Janu Sirsasana", description: "Janu Sirsasana, or Head-to-Knee Pose, stretches the hamstrings and promotes calmness." },
+    { name: "Karnapidasana", description: "Karnapidasana, or Ear Pressure Pose, improves circulation and stretches the neck." },
+    { name: "Suryanamaskar", description: "Suryanamaskar, or Sun Salutation, is a sequence of poses that energizes and strengthens the body." },
+    { name: "Ustrasana", description: "Ustrasana, or Camel Pose, stretches the front of the body and strengthens the back." },
+    { name: "Chakrasana", description: "Chakrasana, or Wheel Pose, strengthens the arms, legs, and back, improving flexibility." },
+    { name: "Jathara Parivartanasana", description: "Jathara Parivartanasana, or Revolved Abdomen Pose, tones the abdomen and improves spinal flexibility." }
+];
+
+        // Function to display the asanas and their descriptions
+        function displayAsanas() {
+            const tableBody = document.getElementById("asana_table_body");
+            tableBody.innerHTML = ""; // Clear existing rows
+            
+            // Loop through asanas array and add rows to table
+            asanas.forEach(asana => {
+                const row = document.createElement("tr");
+
+                const cell1 = document.createElement("td");
+                cell1.textContent = asana.name;
+                row.appendChild(cell1);
+
+                const cell2 = document.createElement("td");
+                cell2.textContent = asana.description;
+                row.appendChild(cell2);
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Attach event listener to the button
+        document.getElementById("displayButton").addEventListener("click", displayAsanas);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: #2deed4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 0 0 20px #2deed4, 0 0 40px #2deed4;
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+/* Video Styling */
+#camera {
+    border: 5px solid #2deed4;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    box-shadow: 0 0 30px #2deed4, 0 0 60px #2deed4;
+    animation: pulse 3s infinite;
+    transform: scaleX(-1); /* This mirrors the camera feed horizontally */
+    -webkit-transform: scaleX(-1); /* For Safari compatibility */
+
+}
+
+/* Canvas Styling */
+#output {
+    margin-top: 20px;
+    border: 5px dashed #2deed4;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    box-shadow: 0 0 30px #2deed4, 0 0 60px #2deed4;
+    animation: pulse 3s infinite reverse;
+}
+
+/* Animations */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #2deed4, 0 0 40px #2deed4;
+    }
+    to {
+        text-shadow: 0 0 40px #2deed4, 0 0 80px #2deed4;
+    }
+}
+

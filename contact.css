@@ -1,0 +1,85 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color and font to the whole page */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #1b1a1a, #2deed4); /* Linear gradient background */
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    background-color: #212121;
+    color: #2deed4;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header h1 {
+    font-size: 4em;
+}
+
+header p {
+    font-size: 1.1em;
+    font-weight: 300;
+    font-family: monospace ;
+}
+
+/* Section container */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Card styling */
+.card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px; /* Increased width for more space */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: monospace;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the cards */
+.card:hover {
+    background-color: #000000;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading inside each card */
+.card h2 {
+    color: #fff;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* Contact info styling */
+.contact-info p {
+    margin: 8px 0;
+    font-size: 1em;
+    color: #fff;
+}
+
+.contact-info strong {
+    color: #2deed4;
+}
+
+/* Footer styling */

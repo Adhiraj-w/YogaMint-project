@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Attendance System</title>
+    <link rel="stylesheet" href="face.css"> <!-- Link to external CSS file -->
+    <script src="face.js" defer></script> <!-- Link to face.js file -->
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">Yoga<span>Mint</span></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="streak.html">Aasans</a></li>
+            <li><a href="cam.html">AI Camera</a></li>
+            <li><a href="">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1 class="glowing-text">AI Yoga Trainer</h1>
+        <p>Effortlessly track your Yoga posture and get better in yoga</p>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <h2>Login to Your Account</h2>
+        <form action="login_action.html" method="post" class="login-form">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+        <p class="register-link">Don’t have an account? <a href="up.html">Sign Up</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Yoga AI training system. All rights reserved.</p>
+    </footer>
+    <script src="face.js"></script> <!-- Alternatively placed here -->
+    <script>
+        // Fetch a text file from the backend
+        fetch('http://localhost:5000/files/example.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('fileContent').innerText = data;
+            })
+            .catch(error => console.error('Error fetching file:', error));
+    </script>
+
+</body>
+</html>
